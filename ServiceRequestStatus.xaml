@@ -1,0 +1,99 @@
+﻿<Window x:Class="MunicipalServicesWPF.ServiceRequestStatusPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Service Request Status" Height="600" Width="900">
+    <Window.Resources>
+        <!-- Define reusable styles for Button -->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="#FF4C8DFF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FF2955DE"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FF2955DE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Header Row -->
+            <RowDefinition Height="*"/>
+            <!-- Content Row -->
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Text="Service Request Status"
+                   FontSize="28" FontWeight="Bold" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Foreground="White" Margin="10"/>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1B2698" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <!-- Service Requests List -->
+                <ColumnDefinition Width="1*"/>
+                <!-- Control Panel -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Service Requests List -->
+            <GroupBox Header="Service Requests" Grid.Column="0" Margin="10" FontSize="16" Foreground="White" Background="#FF1B2698" BorderBrush="#FF0A1C3C" BorderThickness="2">
+                <DockPanel>
+                    <ListView Name="serviceRequestsListView" DockPanel.Dock="Top" Height="350" Margin="5" Background="White" BorderBrush="#FF2955DE" BorderThickness="1">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Request ID" DisplayMemberBinding="{Binding RequestID}" Width="100"/>
+                                <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="200"/>
+                                <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="100"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </DockPanel>
+            </GroupBox>
+
+            <!-- Control Panel -->
+            <GroupBox Header="Controls" Grid.Column="1" Margin="10" FontSize="16" Foreground="White" Background="#FF1B2698" BorderBrush="#FF0A1C3C" BorderThickness="2">
+                <StackPanel VerticalAlignment="Top" Margin="15">
+                    <!-- Add Request Section -->
+                    <TextBlock Text="Add Request:" FontWeight="Bold" Foreground="White" Margin="5"/>
+                    <TextBlock Text="Request ID:" Foreground="White" Margin="5"/>
+                    <TextBox Name="requestIdTextBox" Margin="5" Width="180" Height="30" BorderBrush="#FF2955DE" BorderThickness="1" Padding="5"/>
+                    <Button Content="Add Request" Click="AddRequest_Click" Style="{StaticResource ButtonStyle}"/>
+
+                    <!-- Separator for spacing -->
+                    <Separator Margin="15"/>
+
+                    <!-- Search Request Section -->
+                    <TextBlock Text="Search by Request ID:" FontWeight="Bold" Foreground="White" Margin="5"/>
+                    <TextBox Name="searchRequestIdTextBox" Margin="5" Width="180" Height="30" BorderBrush="#FF2955DE" BorderThickness="1" Padding="5"/>
+                    <Button Content="Search Request" Click="SearchById_Click" Style="{StaticResource ButtonStyle}"/>
+
+                    <!-- Separator for spacing -->
+                    <Separator Margin="15"/>
+
+                    <!-- View Relationships Section -->
+                    <Button Content="View Relationships" Click="ViewRelationships_Click" Style="{StaticResource ButtonStyle}"/>
+
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</Window>
+
+
+
+
+
+
+
+
