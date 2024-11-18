@@ -156,21 +156,17 @@ After starting the application:
    - Request 3 depends on Request 1.
 
 ---
+Contributing
+ To contribute:
+1.	Fork the repository.
+2.	Create a new branch for your feature or bugfix.
+3.	Submit a pull request.
 
-## License
-
-This project is licensed under the MIT License. See LICENSE for more details.
-
----
-
-## Contact
-
-For issues or questions, feel free to contact ST10083252@vcconnect.edu.za
-
-
+Updates to part 1:
+Changes to the UI has been made to give it a cleaner look as well as comments have been added to the xmal.cs files for part 1.
+Sample data used in the events page:
  
+This data is preloaded to demonstrate the LocalEvents page functionality.
 
-
-
-
-
+![WhatsApp Image 2024-10-15 at 21 39 02](https://github.com/user-attachments/assets/ec80fcd4-38c7-4385-80bb-ee0737e31cce)
+For issues or questions, feel free to contact ST10083252@vcconnect.edu.za
